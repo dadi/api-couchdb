@@ -59,53 +59,53 @@ describe('CouchDB', function () {
   })
 
   describe('insert', function () {
-  it('should insert a single document into the database', function (done) {
-    var couchdb = new CouchDBAdapter()
-    couchdb.connect({ collection: 'users' }).then(() => {
-      var user = { name: 'Ernest' }
+    it('should insert a single document into the database', function (done) {
+      var couchdb = new CouchDBAdapter()
+      couchdb.connect({ collection: 'users' }).then(() => {
+        var user = { name: 'Ernest' }
 
-      couchdb.insert(user, 'users', {}).then((results) => {
-        results.constructor.name.should.eql('Array')
-        results[0].name.should.eql('Ernest')
-        done()
-      }).catch(err => {
-        done(err)
-      })
-    })
-  })
-
-  it('should insert an array of documents into the database', function (done) {
-    var couchdb = new CouchDBAdapter()
-    couchdb.connect({ collection: 'users' }).then(() => {
-      var users = [{ name: 'Ernest' }, { name: 'Wallace' }]
-
-      couchdb.insert(users, 'users', {}).then((results) => {
-        results.constructor.name.should.eql('Array')
-        results.length.should.eql(2)
-        results[0].name.should.eql('Ernest')
-        results[1].name.should.eql('Wallace')
-        done()
-      }).catch(err => {
-        done(err)
-      })
-    })
-  })
-})
-
-describe('find', function () {
-  it('should find a single document in the database', function (done) {
-    var couchdb = new CouchDBAdapter()
-    couchdb.connect({ collection: 'users' }).then(() => {
-      var users = [{ name: 'Ernest' }, { name: 'Wallace' }]
-
-      couchdb.insert(users, 'users', {}).then((results) => {
-        couchdb.find({ name: 'Wallace' }, 'users', {}).then((results) => {
+        couchdb.insert(user, 'users', {}).then((results) => {
           results.constructor.name.should.eql('Array')
-          results[0].name.should.eql('Wallace')
+          results[0].name.should.eql('Ernest')
           done()
+        }).catch(err => {
+          done(err)
+        })
+      })
+    })
+
+    it('should insert an array of documents into the database', function (done) {
+      var couchdb = new CouchDBAdapter()
+      couchdb.connect({ collection: 'users' }).then(() => {
+        var users = [{ name: 'Ernest' }, { name: 'Wallace' }]
+
+        couchdb.insert(users, 'users', {}).then((results) => {
+          results.constructor.name.should.eql('Array')
+          results.length.should.eql(2)
+          results[0].name.should.eql('Ernest')
+          results[1].name.should.eql('Wallace')
+          done()
+        }).catch(err => {
+          done(err)
         })
       })
     })
   })
-})
+
+  describe.skip('find', function () {
+    it('should find a single document in the database', function (done) {
+      var couchdb = new CouchDBAdapter()
+      couchdb.connect({ collection: 'users' }).then(() => {
+        var users = [{ name: 'Ernest' }, { name: 'Wallace' }]
+
+        couchdb.insert(users, 'users', {}).then((results) => {
+          couchdb.find({ name: 'Wallace' }, 'users', {}).then((results) => {
+            results.constructor.name.should.eql('Array')
+            results[0].name.should.eql('Wallace')
+            done()
+          })
+        })
+      })
+    })
+  })
 })
