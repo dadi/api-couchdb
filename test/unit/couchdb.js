@@ -7,7 +7,7 @@ var url = require('url')
 var config = require(__dirname + '/../../config')
 
 describe('CouchDB', function () {
-  this.timeout(2000)
+  this.timeout(5000)
 
   beforeEach(function (done) {
       // connection.resetConnections();
