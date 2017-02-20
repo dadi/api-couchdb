@@ -6,6 +6,7 @@
   "scripts": {
     "test": "snazzy 'lib/**/*.js' && env NODE_ENV=test ./node_modules/.bin/istanbul cover --report cobertura --report text --report html --report lcov ./node_modules/mocha/bin/_mocha test",
     "posttest": "./scripts/coverage.js",
+    "postinstall": "node ./scripts/copy-config.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "James Lambie <jameslambie@gmail.com>",
@@ -13,7 +14,9 @@
   "dependencies": {
     "convict": "^2.0.0",
     "cradle": "https://github.com/flatiron/cradle.git",
-    "debug": "^2.6.0"
+    "debug": "^2.6.0",
+    "underscore": "^1.8.3",
+    "underscore-contrib": "^0.3.0"
   },
   "repository": {
     "type": "git",
