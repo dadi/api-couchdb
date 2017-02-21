@@ -136,7 +136,7 @@ describe('CouchDB', function () {
       })
     })
 
-    it.skip('should return only the fields specified by the `fields` property', function (done) {
+    it('should return only the fields specified by the `fields` property', function (done) {
       var couchdb = new CouchDBAdapter()
       couchdb.connect({ collection: 'users' }).then(() => {
         var users = [{ name: 'Ernie', age: 7, colour: 'yellow' }, { name: 'Oscar', age: 9, colour: 'green' }, { name: 'BigBird', age: 13, colour: 'yellow' }]
