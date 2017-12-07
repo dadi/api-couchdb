@@ -13,7 +13,7 @@
   "author": "James Lambie <jameslambie@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "convict": "^2.0.0",
+    "convict": "^4.0.2",
     "cradle": "https://github.com/flatiron/cradle.git",
     "debug": "^2.6.0",
     "underscore": "^1.8.3",
