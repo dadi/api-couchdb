@@ -5,46 +5,46 @@ var fs = require('fs')
 var conf = convict({
   server: {
     host: {
-      doc: "",
+      doc: '',
       format: '*',
       default: '127.0.0.1',
-      env: "COUCHDB_HOST"
+      env: 'COUCHDB_HOST'
     },
     port: {
-      doc: "",
+      doc: '',
       format: Number,
       default: 5984,
-      env: "COUCHDB_PORT"
+      env: 'COUCHDB_PORT'
     }
   },
   options: {
     cache: {
-      doc: "",
+      doc: '',
       format: Boolean,
       default: true
     },
     raw: {
-      doc: "",
+      doc: '',
       format: Boolean,
       default: false
     },
     forceSave: {
-      doc: "",
+      doc: '',
       format: Boolean,
       default: true
     },
     request: {
-      doc: "",
+      doc: '',
       format: Object,
       default: {}
-    },
+    }
   },
   env: {
-    doc: "The applicaton environment.",
-    format: ["production", "development", "test", "qa"],
-    default: "development",
-    env: "NODE_ENV",
-    arg: "node_env"
+    doc: 'The applicaton environment.',
+    format: ['production', 'development', 'test', 'qa'],
+    default: 'development',
+    env: 'NODE_ENV',
+    arg: 'node_env'
   }
 })
 
@@ -53,7 +53,7 @@ var env = conf.get('env')
 conf.loadFile('./config/couchdb.' + env + '.json')
 
 // Perform validation
-conf.validate({strict: false})
+conf.validate({ strict: false })
 
 // Load domain-specific configuration
 // conf.updateConfigDataForDomain = function(domain) {
@@ -75,6 +75,6 @@ conf.validate({strict: false})
 // };
 
 module.exports = conf
-module.exports.configPath = function() {
+module.exports.configPath = function () {
   return './config/couchdb.' + conf.get('env') + '.json'
 }

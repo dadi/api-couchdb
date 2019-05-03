@@ -10,11 +10,11 @@ describe('CouchDB', function () {
   this.timeout(5000)
 
   beforeEach(function (done) {
-      // connection.resetConnections();
+    // connection.resetConnections();
     done()
   })
 
-  afterEach(function(done) {
+  afterEach(function (done) {
     done()
   })
 
